@@ -3,6 +3,7 @@ var clear = require("clear");
 var figlet = require("figlet");
 var files = require("./lib/files");
 var inquirer = require("./lib/inquirer");
+var github = require("./lib/github");
 
 clear();
 console.log(
@@ -17,8 +18,14 @@ if (files.directoryExits('.git')) {
 }
 
 const run = async () => {
-    const credentials = await inquirer.askGithubCredentials();
-    console.log(credentials);
+    const token = await github.getStoredGithubToken();
+    
+    if (!token) {
+        await github.setGithubCredentials();
+        token = await github.registerNewToken();
+    }
+
+    console.log(token);
 }
 
 run();
