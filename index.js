@@ -18,7 +18,7 @@ if (files.directoryExits('.git')) {
 }
 
 const run = async () => {
-    const token = await github.getStoredGithubToken();
+    let token = await github.getStoredGithubToken();
     
     if (!token) {
         await github.setGithubCredentials();
