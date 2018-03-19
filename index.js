@@ -1,9 +1,10 @@
 var chalk = require("chalk");
 var clear = require("clear");
 var figlet = require("figlet");
+var program = require("commander");
+var pkg = require("./package.json");
 var files = require("./lib/files");
-var inquirer = require("./lib/inquirer");
-var github = require("./lib/github");
+var commads = require("./lib/commads");
 
 clear();
 console.log(
@@ -17,15 +18,9 @@ if (files.directoryExits('.git')) {
     process.exit();
 }
 
-const run = async () => {
-    let token = await github.getStoredGithubToken();
-    
-    if (!token) {
-        await github.setGithubCredentials();
-        token = await github.registerNewToken();
-    }
+program
+    .version(pkg.version, '-v, --version')
+    .arguments('<name> [description]')
+    .action(commads.runGinit);
 
-    console.log(token);
-}
-
-run();
+program.parse(process.argv);
