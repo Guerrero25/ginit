@@ -20,7 +20,7 @@ if (files.directoryExits('.git')) {
 
 program
     .version(pkg.version, '-v, --version')
-    .arguments('<name> [description]')
-    .action(commads.runGinit);
+    .arguments('[name] [description]')
+    .action(commads.run);
 
 program.parse(process.argv);
