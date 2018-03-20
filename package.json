@@ -13,6 +13,10 @@
   ],
   "author": "Omar Guerrero <guerrero9725@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Guerrero25/ginit.git"
+  },
   "bin": {
     "ginit": "./index.js"
   },
