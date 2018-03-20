@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var chalk = require("chalk");
 var clear = require("clear");
 var figlet = require("figlet");
@@ -13,10 +15,10 @@ console.log(
     )
 );
 
-// if (files.directoryExits('.git')) {
-//     console.log(chalk.red('Alredy a git repository!'));
-//     process.exit();
-// }
+if (files.directoryExits('.git')) {
+    console.log(chalk.red('Alredy a git repository!'));
+    process.exit();
+}
 
 program
     .version(pkg.version, '-v, --version')
