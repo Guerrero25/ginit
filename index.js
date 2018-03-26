@@ -25,4 +25,8 @@ program
     .arguments('[name] [description]')
     .action(commads.run);
 
+program
+    .command('logout')
+    .action(commads.logout);
+
 program.parse(process.argv);
