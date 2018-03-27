@@ -26,6 +26,10 @@ program
     .action(commads.run);
 
 program
+    .command('login')
+    .action(commads.login);
+
+program
     .command('logout')
     .action(commads.logout);
 
